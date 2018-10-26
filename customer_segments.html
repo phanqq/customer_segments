@@ -13523,8 +13523,8 @@ Repeated outliers: 5
 <p><strong>Answer:</strong></p>
 <ul>
 <li>Yes, there are outliers for multiple features. These are the repeated outliers of indices: [128L, 154L, 65L, 66L, 75L]</li>
-<li>Yes, these outliers should be removed since some algorithms are sensitive to outliers. Others are not, but it is best to removed the outliers to avoid skewing.</li>
-<li>KMeans are sensitive to outliers.</li>
+<li>Yes, these outliers should be removed since some algorithms are sensitive to outliers (such as KMeans). Other algorithms are not sensitive to outliers, but it is best to removed the outliers to avoid skewing.</li>
+<li>All points that are considered outliers are removed. This is to prevent abnormal results from skewing our data. </li>
 </ul>
 
 </div>
@@ -14800,6 +14800,7 @@ number of cluster: 19, score = 0.328429013185
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
 The model separate cutomers into 2 segments: segment 0 prioritize fresh food, and segment 1 priositize the other features. For fresh food customers (segment 0), they may want to keep the 5 days a week delivery so that there will be fresher food. For the other category, 3-days a week delivery can be tested.</p>
+<p>To run the A/B test, we should create 4 groups: 2 from segment 0 (groups 1 and 2), 2 from segment 1 (groups 3 and 4), with each group randomly selected among its respective segment. Groups 1 and 3 will be control, and their schedule will not change (5 days delivery). Groups 2 and 4 will have their delivery changed to 3-days delivery. After a certain amount of time, we survey all customers in each group and compare to their own segment's counterpart (1 vs 2, and 3 vs 4), and the group that has the highest satisfaction would indicate that that is a possible delivery schedule.</p>
 
 </div>
 </div>
